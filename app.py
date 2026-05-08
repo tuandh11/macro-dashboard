@@ -13,8 +13,32 @@ st.set_page_config(page_title="Macro Watch", layout="wide", initial_sidebar_stat
 st.markdown(
     """
     <style>
-    html, body, [class*="st-"] {
-        font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    /* 1. ĐỒNG BỘ FONT CHỮ CẢ TRANG (Bao gồm cả Tiêu đề h1 -> h6, các thẻ div, p) */
+    html, body, [class*="st-"], h1, h2, h3, h4, h5, h6, p, div, span, label {
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "San Francisco", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    }
+    
+    /* 2. LÀM NỔI BẬT NÚT ĐÓNG/MỞ SIDEBAR */
+    [data-testid="collapsedControl"], 
+    [data-testid="stSidebarCollapseButton"] {
+        background-color: rgba(229, 169, 60, 0.1) !important; /* Nền mờ màu vàng đồng */
+        border: 1px solid rgba(229, 169, 60, 0.5) !important;
+        border-radius: 8px !important;
+        transition: all 0.3s ease-in-out !important;
+    }
+
+    /* Hiệu ứng di chuột vào nút Sidebar */
+    [data-testid="collapsedControl"]:hover, 
+    [data-testid="stSidebarCollapseButton"]:hover {
+        background-color: #E5A93C !important;
+        box-shadow: 0 0 10px rgba(229, 169, 60, 0.5) !important;
+    }
+
+    /* 3. ẨN TEXT "KEYBOARD_DOUBLE..." (Tooltip rác của Material Icon) */
+    [data-testid="collapsedControl"] svg title,
+    [data-testid="stSidebarCollapseButton"] svg title,
+    [data-testid="collapsedControl"]::before {
+        display: none !important;
     }
     </style>
     """,
