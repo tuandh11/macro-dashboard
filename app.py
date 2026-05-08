@@ -9,6 +9,18 @@ import google.generativeai as genai
 # --- 1. CẤU HÌNH GIAO DIỆN DARK MODE TỰ ĐỘNG ---
 st.set_page_config(page_title="Macro Watch", layout="wide", initial_sidebar_state="expanded")
 
+# --- CẤU HÌNH FONT CHỮ KIỂU MACOS/IOS ---
+st.markdown(
+    """
+    <style>
+    html, body, [class*="st-"] {
+        font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 # Cấu hình Sidebar cho API Key
 with st.sidebar:
     st.header("⚙️ Cấu hình Hệ thống")
